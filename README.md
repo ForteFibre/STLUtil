@@ -15,7 +15,7 @@ int main() {
     stlutil::STLReader reader("path/to/your/stl");
     if (!reader) {
         std::cout << "読み込みに失敗" << std::endl;
-        return;
+        return 0;
     }
 
     for (const auto& [ normal, a, b, c ] : reader) {
@@ -33,7 +33,7 @@ int main() {
     stlutil::STLReader reader("path/to/your/stl");
     if (!reader) {
         std::cout << "読み込みに失敗" << std::endl;
-        return;
+        return 0;
     }
 
     // 平面 z = 50 で断面図を作成する．
