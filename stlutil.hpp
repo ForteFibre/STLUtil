@@ -151,10 +151,11 @@ namespace stlutil {
          * @param d 平面の式の定数
          * @return 交点の媒介変数の値
          */
+        [[nodiscard]]
         float segment_plane_intersection(
             const STLSegment &segment,
             const float a, const float b, const float c, const float d
-        ) {
+        ) noexcept {
             const auto& [ x1, y1, z1 ] = segment.p;
             const auto& [ x2, y2, z2 ] = segment.q;
             return -(a * x1 + b * y1 + c * z1 + d)
@@ -167,10 +168,11 @@ namespace stlutil {
          * @param t 内分比 1 - t : t
          * @return 内分点
          */
+        [[nodiscard]]
         STLVector point_on_line(
             const STLSegment &segment,
             const float t
-        ) {
+        ) noexcept {
             const auto& [ x1, y1, z1 ] = segment.p;
             const auto& [ x2, y2, z2 ] = segment.q;
             return {
@@ -191,7 +193,7 @@ namespace stlutil {
      * @return スライスして得られた線分の配列
      */
     [[nodiscard]]
-    const std::vector<STLSegment> slice_polygons_at(
+    std::vector<STLSegment> slice_polygons_at(
         const std::vector<STLPolygon> &polygons,
         const float a, const float b, const float c, const float d
     ) noexcept {
@@ -225,7 +227,7 @@ namespace stlutil {
      * @return スライスして得られた線分の配列
      */
     [[nodiscard]]
-    const std::vector<STLSegment> slice_polygons_at_x(
+    std::vector<STLSegment> slice_polygons_at_x(
         const std::vector<STLPolygon> &polygons,
         const float x
     ) noexcept {
@@ -239,7 +241,7 @@ namespace stlutil {
      * @return スライスして得られた線分の配列
      */
     [[nodiscard]]
-    const std::vector<STLSegment> slice_polygons_at_y(
+    std::vector<STLSegment> slice_polygons_at_y(
         const std::vector<STLPolygon> &polygons,
         const float y
     ) noexcept {
@@ -253,7 +255,7 @@ namespace stlutil {
      * @return スライスして得られた線分の配列
      */
     [[nodiscard]]
-    const std::vector<STLSegment> slice_polygons_at_z(
+    std::vector<STLSegment> slice_polygons_at_z(
         const std::vector<STLPolygon> &polygons,
         const float z
     ) noexcept {
