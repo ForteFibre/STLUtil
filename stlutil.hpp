@@ -61,6 +61,7 @@ namespace stlutil {
                 std::cerr << "STLReader::STLReader() Error: Cannot open file `" << path << "`." << std::endl;
                 return;
             }
+            stlfile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
             stlfile.read(header_, 80); // 先頭80byteの読み取り
 
