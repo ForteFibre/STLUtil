@@ -152,7 +152,7 @@ namespace stlutil {
          * @return 交点の媒介変数の値
          */
         [[nodiscard]]
-        float segment_plane_intersection(
+        static inline float segment_plane_intersection(
             const STLSegment &segment,
             const float a, const float b, const float c, const float d
         ) noexcept {
@@ -169,7 +169,7 @@ namespace stlutil {
          * @return 内分点
          */
         [[nodiscard]]
-        STLVector point_on_line(
+        static inline STLVector point_on_line(
             const STLSegment &segment,
             const float t
         ) noexcept {
