@@ -49,6 +49,8 @@ namespace stlutil {
         std::vector<STLPolygon> polygons_; // ポリゴンの配列
 
     public:
+        STLReader(const STLReader&) = delete;
+
         /**
          * STLファイルを読み込んでポリゴンの読み出しを行ないます
          * @param path 読み込むSTLファイルへのパス
