@@ -63,9 +63,8 @@ namespace stlutil {
             }
             stlfile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
-            stlfile.read(header_, 80); // 先頭80byteの読み取り
-
             uint32_t size;
+            stlfile.read(header_, 80); // 先頭80byteの読み取り
             stlfile.read(reinterpret_cast<char *>(&size), 4); // ポリゴンの数の読み取り
             polygons_.resize(size);
             for (auto& [ normal, a, b, c ] : polygons_) {
