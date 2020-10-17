@@ -53,7 +53,7 @@ namespace stlutil {
          * STLファイルを読み込んでポリゴンの読み出しを行ないます
          * @param path 読み込むSTLファイルへのパス
          */
-        STLReader(const std::string &path) {
+        explicit STLReader(const std::string &path) {
             std::ifstream stlfile(path, std::ios::in | std::ios::binary);
             if (!stlfile) {
                 std::cerr << "STLReader::STLReader() Error: File " << path << " not found." << std::endl;
