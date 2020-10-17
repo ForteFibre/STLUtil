@@ -58,7 +58,7 @@ namespace stlutil {
         explicit STLReader(const std::string &path) {
             std::ifstream stlfile(path, std::ios::in | std::ios::binary);
             if (!stlfile) {
-                std::cerr << "STLReader::STLReader() Error: File " << path << " not found." << std::endl;
+                std::cerr << "STLReader::STLReader() Error: Cannot open file `" << path << "`." << std::endl;
                 return;
             }
 
