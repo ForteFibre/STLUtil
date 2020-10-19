@@ -45,7 +45,7 @@ namespace stlutil {
      */
     struct STLReader {
     private:
-        char header_[80]; // STLファイルの先頭80byte
+        std::string header_; // STLファイルの先頭80byte
         std::vector<STLPolygon> polygons_; // ポリゴンの配列
 
     public:
@@ -63,8 +63,9 @@ namespace stlutil {
             }
             stlfile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
+            header_.resize(80);
+            stlfile.read(header_.data(), 80); // 先頭80byteの読み取り
             uint32_t size;
-            stlfile.read(header_, 80); // 先頭80byteの読み取り
             stlfile.read(reinterpret_cast<char *>(&size), 4); // ポリゴンの数の読み取り
             polygons_.resize(size);
             for (auto& [ normal, a, b, c ] : polygons_) {
@@ -128,7 +129,7 @@ namespace stlutil {
          * @details 読み取り専用
          */
         [[nodiscard]]
-        const auto header() const noexcept {
+        const auto &header() const noexcept {
             return header_;
         }
 
