@@ -46,8 +46,9 @@ namespace stlutil {
     struct STLReader {
     private:
         std::string header_; // STLファイルの先頭80byte
-        uint32_t size; // STLファイルのサイズ
         std::vector<STLPolygon> polygons_; // ポリゴンの配列
+
+        bool valid = false; // 読み取りが正常に行えたかどうか
 
     public:
         STLReader(const STLReader&) = delete;
@@ -66,6 +67,7 @@ namespace stlutil {
 
             header_.resize(80);
             stlfile.read(header_.data(), 80); // 先頭80byteの読み取り
+            uint32_t size;
             stlfile.read(reinterpret_cast<char *>(&size), 4); // ポリゴンの数の読み取り
             polygons_.resize(size);
             for (auto& [ normal, a, b, c ] : polygons_) {
@@ -99,13 +101,15 @@ namespace stlutil {
                 }
                 stlfile.ignore(2); // 2byteスキップ
             }
+
+            valid = true;
         }
 
         /**
-         * @return 読み取りが正常に行えたかどうか
+         * @return 読み取りが正常に行えていたらtrue，そうでなければfalse
          */
         explicit operator bool() const noexcept {
-            return size == polygons_.size();
+            return valid;
         }
 
         /**
