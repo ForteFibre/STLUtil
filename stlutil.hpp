@@ -74,30 +74,30 @@ namespace stlutil {
                 {
                     auto& [ x, y, z ] = normal;
                     // 法線ベクトルの読み取り
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&x)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&y)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&z)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&x)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&y)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&z)), 4);
                 }
                 {
                     auto& [ x, y, z ] = a;
                     // 三角形の頂点1の読み取り
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&x)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&y)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&z)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&x)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&y)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&z)), 4);
                 }
                 {
                     auto& [ x, y, z ] = b;
                     // 三角形の頂点2の読み取り
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&x)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&y)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&z)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&x)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&y)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&z)), 4);
                 }
                 {
                     auto& [ x, y, z ] = c;
                     // 三角形の頂点3の読み取り
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&x)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&y)), 4);
-                    stlfile.read(static_cast<char*>(static_cast<void *>(&z)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&x)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&y)), 4);
+                    stlfile.read(static_cast<char *>(static_cast<void *>(&z)), 4);
                 }
                 stlfile.ignore(2); // 2byteスキップ
             }
